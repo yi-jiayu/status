@@ -83,4 +83,5 @@ resource "aws_lambda_function" "checkup" {
   layers           = [aws_lambda_layer_version.checkup.arn]
   source_code_hash = data.archive_file.lambda.output_base64sha256
   runtime          = "python3.8"
+  timeout          = "30"
 }
