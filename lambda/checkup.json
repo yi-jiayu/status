@@ -1,14 +1,14 @@
 {
   "checkers": [
     {
-      "type": "tls",
+      "type": "http",
       "endpoint_name": "Blog",
-      "endpoint_url": "blog.jiayu.co:443"
+      "endpoint_url": "https://blog.jiayu.co/"
     },
     {
-      "type": "tls",
+      "type": "http",
       "endpoint_name": "Landing page",
-      "endpoint_url": "jiayu.co:443"
+      "endpoint_url": "https://www.jiayu.co/"
     }
   ],
   "storage": {
