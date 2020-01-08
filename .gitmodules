@@ -1,0 +1,3 @@
+[submodule "checkup"]
+	path = checkup
+	url = https://github.com/sourcegraph/checkup.git
