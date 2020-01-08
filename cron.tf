@@ -6,7 +6,7 @@ resource "aws_lambda_permission" "allow_cloudwatch" {
 }
 
 resource "aws_cloudwatch_event_rule" "schedule_checkups" {
-  name = "schedule-checkups-for-${replace(var.url, ".", "-dot-")}"
+  name = "schedule-checkups-for-${replace(var.bucket, ".", "-dot-")}"
 
   schedule_expression = "rate(${var.checkup_interval})"
 }

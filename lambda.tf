@@ -11,7 +11,7 @@ data "archive_file" "lambda" {
     content = templatefile("lambda/checkup.json", {
       access_key_id     = aws_iam_access_key.admin.id,
       secret_access_key = aws_iam_access_key.admin.secret,
-      bucket            = var.url,
+      bucket            = var.bucket,
       region            = var.aws_region,
     })
     filename = "checkup.json"
@@ -21,7 +21,7 @@ data "archive_file" "lambda" {
 data "aws_caller_identity" "current" {}
 
 resource "aws_iam_role" "lambda" {
-  name = "checkup_for_${replace(var.url, ".", "-dot-")}-role"
+  name = "checkup_for_${replace(var.bucket, ".", "-dot-")}-role"
   path = "/service-role/"
 
   assume_role_policy = <<EOF
@@ -62,7 +62,7 @@ resource "aws_iam_policy" "lambda" {
         "logs:PutLogEvents"
       ],
       "Resource": [
-        "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.account_id}:log-group:/aws/lambda/checkup_for_${replace(var.url, ".", "-dot-")}:*"
+        "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.account_id}:log-group:/aws/lambda/checkup_for_${replace(var.bucket, ".", "-dot-")}:*"
       ]
     }
   ]
@@ -77,7 +77,7 @@ resource "aws_iam_role_policy_attachment" "lambda" {
 
 resource "aws_lambda_function" "checkup" {
   filename         = data.archive_file.lambda.output_path
-  function_name    = "checkup_for_${replace(var.url, ".", "-dot-")}"
+  function_name    = "checkup_for_${replace(var.bucket, ".", "-dot-")}"
   role             = aws_iam_role.lambda.arn
   handler          = "checkup.run"
   layers           = [aws_lambda_layer_version.checkup.arn]

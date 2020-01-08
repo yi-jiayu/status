@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "statuspage" {
-  bucket = var.url
+  bucket = var.bucket
   acl    = "public-read"
   policy = <<EOF
 {
@@ -13,7 +13,7 @@ resource "aws_s3_bucket" "statuspage" {
         "s3:GetObject"
       ],
       "Resource": [
-        "arn:aws:s3:::${var.url}/*"
+        "arn:aws:s3:::${var.bucket}/*"
       ]
     }
   ]

@@ -1,4 +1,4 @@
-variable "url" {
+variable "bucket" {
   type = string
 }
 

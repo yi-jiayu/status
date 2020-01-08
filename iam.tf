@@ -7,7 +7,7 @@ data "aws_iam_policy" "s3_full_access" {
 }
 
 resource "aws_iam_user" "admin" {
-  name = "${replace(var.url, ".", "-dot-")}_admin"
+  name = "${replace(var.bucket, ".", "-dot-")}_admin"
 }
 
 resource "aws_iam_access_key" "admin" {
@@ -20,7 +20,7 @@ resource "aws_iam_user_policy_attachment" "admin" {
 }
 
 resource "aws_iam_user" "viewer" {
-  name = "${replace(var.url, ".", "-dot-")}_viewer"
+  name = "${replace(var.bucket, ".", "-dot-")}_viewer"
 }
 
 resource "aws_iam_access_key" "viewer" {
