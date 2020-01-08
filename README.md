@@ -47,3 +47,28 @@ go get github.com/sourcegraph/checkup
 mkdir -p layer/bin
 cp $GOPATH/src/github.com/sourcegraph/checkup/cmd/checkup/checkup layer/bin/
 ```
+
+### Variables
+
+The following variables can be set:
+
+- `bucket` (required): Name of the S3 bucket to be created for storing checks.
+- `aws_region` (default: `ap-southeast-1`): AWS region to create infrastructure
+  in.
+- `checkup_interval` (default: `5 minutes`): Interval between checks, specified
+  as a [CloudWatch Rate
+  Expression](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#RateExpressions).
+
+Create a file `terraform.tfvars` to specify these variables with the following
+format:
+
+```
+bucket = "bucket-name"
+aws_region = "ap-southeast-1"
+checkup_interval = "5 minutes"
+```
+
+### Apply
+
+Finally, run `terraform init` followed by `terraform apply`. The URL of your
+status page will be output after the apply completes.
