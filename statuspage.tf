@@ -26,9 +26,9 @@ resource "aws_s3_bucket_object" "js" {
 }
 
 resource "aws_s3_bucket_object" "index" {
-  bucket = aws_s3_bucket.statuspage.id
-  key    = "index.html"
-  source = "checkup/statuspage/index.html"
+  bucket       = aws_s3_bucket.statuspage.id
+  key          = "index.html"
+  source       = "checkup/statuspage/index.html"
   content_type = "text/html"
 }
 

@@ -1,0 +1,21 @@
+{
+  "checkers": [
+    {
+      "type": "tls",
+      "endpoint_name": "Blog",
+      "endpoint_url": "blog.jiayu.co:443"
+    },
+    {
+      "type": "tls",
+      "endpoint_name": "Landing page",
+      "endpoint_url": "jiayu.co:443"
+    }
+  ],
+  "storage": {
+    "provider": "s3",
+    "access_key_id": "${access_key_id}",
+    "secret_access_key": "${secret_access_key}",
+    "bucket": "${bucket}",
+    "region": "${region}"
+  }
+}

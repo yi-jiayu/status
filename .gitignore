@@ -1,3 +1,9 @@
 .terraform
 terraform.tfstate*
 terraform.tfvars
+.terraform.tfstate.lock.info
+
+layer
+layer.zip
+
+lambda.zip
