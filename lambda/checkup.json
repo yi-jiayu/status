@@ -3,12 +3,14 @@
     {
       "type": "http",
       "endpoint_name": "Blog",
-      "endpoint_url": "https://blog.jiayu.co/"
+      "endpoint_url": "https://blog.jiayu.co/",
+      "threshold_rtt": 2000000000
     },
     {
       "type": "http",
       "endpoint_name": "Landing page",
-      "endpoint_url": "https://www.jiayu.co/"
+      "endpoint_url": "https://www.jiayu.co/",
+      "threshold_rtt": 2000000000
     }
   ],
   "storage": {
