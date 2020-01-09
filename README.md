@@ -33,9 +33,7 @@ git submodule update --init
 
 ### Checkup binary
 
-The Checkup binary needs to be built as well. Since Checkup is not built with
-Go modules yet, we will need to build it in our GOPATH instead of using our
-submodule.
+The Checkup binary needs to be built as well.
 
 Since our executable will be run in Lambda, we will build it for Amazon Linux
 with `GOOS=linux GOARCH=amd64`. We will also use `CGO_ENABLED=0` because we are
