@@ -9,5 +9,5 @@ variable "aws_region" {
 
 variable "checkup_interval" {
   type    = string
-  default = "1 minute"
+  default = "5 minutes"
 }
