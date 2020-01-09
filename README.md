@@ -42,10 +42,9 @@ with `GOOS=linux GOARCH=amd64`. We will also use `CGO_ENABLED=0` because we are
 not using SQLite or other cgo dependencies.
 
 ```
-go get github.com/sourcegraph/checkup
-(cd $GOPATH/src/github.com/sourcegraph/checkup/cmd/checkup && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build)
+(cd checkup/cmd/checkup && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build)
 mkdir -p layer/bin
-cp $GOPATH/src/github.com/sourcegraph/checkup/cmd/checkup/checkup layer/bin/
+cp checkup/cmd/checkup/checkup layer/bin/
 ```
 
 ### Variables
